@@ -1,9 +1,28 @@
 # Async testing via providers framework example
 
 This repo contains an example of how one might colocate integration/e2e tests along side infrastructure.
+Inspired by [this article](https://dev.to/aws-builders/testing-the-async-cloud-with-aws-cdk-33aj) and [this repository](https://github.com/elthrasher/cdk-async-testing-example).
 
 There are pros and cons to this approach. I have whole document dedicated to testing asynchronous flows.
 The [document I'm referring to can be found here](https://github.com/WojciechMatuszewski/programming-notes/blob/master/aws/serverless/testing-serverless.md).
+
+## Deployment
+
+1. Bootstrap the AWS environment
+
+   ```sh
+   npm run bootstrap
+   ```
+
+2. Deploy the app (this step will also run the tests)
+
+   ```sh
+   npm run deploy
+   ```
+
+## Breaking the tests
+
+The tests are run every-time the infrastructure is deployed. Try making changes to `lib/assert-function.ts` and see if you can break the deployment.
 
 ## Learnings
 
